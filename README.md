@@ -3,7 +3,7 @@ Create Pipedream diagrams (combinatorics)
 
 Running this code has some prerequisites
 
-A Python version >= python 3.13.6
+Recommend using a Python version >= python 3.13.3
   - uses turtle (built-in) module
       - On Darwin, turtle.teleport is not available unless you build a version of Python from source
   - compiled Python with support for Tkinter (and several other extensions like curses, readline, dbm, lzma ssl ...)
