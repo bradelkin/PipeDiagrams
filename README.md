@@ -12,3 +12,15 @@ Recommend using a Python version >= python 3.13.3
 The bpython PYPI package can make interactive runs of code easier to work with (if something goes wrong)
 
 Need to run from the root installation directory - I suggest calling it pipedream or turtle or something similar
+
+Example programs are: (listed from simplest to most complicated)
+- grid1.py
+- grid1-fine_grid.py
+- grid2.py
+- grid2-fine_grid.py
+- grid2-stamp.py
+
+Other files are source files
+
+- Need to add .__init__.py files and then can put examples in their own directory
+
