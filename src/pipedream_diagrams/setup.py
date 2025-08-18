@@ -4,10 +4,10 @@ with open("README.md", 'r') as f:
     long_description = f.read()
 
 setup(
-   name='PipeDiagrams',
+   name='pipedream_diagrams',
    version='0.5',
    description='Make PipeDream diagrams',
-   license="GPL 3.0",
+   license="GPL-3.0-or-later",
    long_description=long_description,
    author='Brad Elkin',
    author_email='brad.elkin@gmail.com',

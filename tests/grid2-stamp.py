@@ -1,10 +1,12 @@
 import sys
 import turtle as t
 
-from pipe_grid import Grid
-from pipe_gridelement import GridElement
+from context import get_script_path
 
 if __name__ == "__main__":
+    get_script_path()
+    from pipedream_diagrams.pipe_grid import Grid
+
     t.tracer(0,0)
     row_length = 10
     col_length = 10

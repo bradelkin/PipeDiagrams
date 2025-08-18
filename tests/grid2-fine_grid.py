@@ -1,10 +1,13 @@
 import sys
 import turtle as t
 
-from pipe_grid import Grid
-from pipe_gridelement import GridElement
+from context import get_script_path
+
 
 if __name__ == "__main__":
+    get_script_path()
+    from pipedream_diagrams.pipe_grid import Grid
+
     t.tracer(0,0)
     row_length = 10
     col_length = 10
@@ -50,19 +53,8 @@ if __name__ == "__main__":
     g.add_pipeline(pipeline4, pen_color="purple")
     g.add_pipeline(pipeline5, pen_color="green")
 
-    t.tracer(1,0)
-    t.st()
-    stamp_list = ['a0', 'a1', 'a2', 'b2', 'b3','c2', 'c3']
-    g.add_stamps(stamp_list)
-
-    g.place_stamp('a0', 0, 0, row_offset=0, col_offset=0, for_row=True, print_stamp=True)
-    g.place_stamp('a1', 1, 0, row_offset=0, col_offset=0, for_row=True, print_stamp=True)
-    g.place_stamp('a2', 2, 0, row_offset=0, col_offset=0, for_row=True, print_stamp=True)
-    g.place_stamp('b3', 3, 1, row_offset=0, col_offset=0, for_row=True, print_stamp=True)
-    g.place_stamp('c2', 5, 2, for_row=False, print_stamp=True)
-    g.place_stamp('c3', 5, 3, for_row=False, print_stamp=True)
-
     g.dump_png()
 
 
+#   t.done()
     t.exitonclick()

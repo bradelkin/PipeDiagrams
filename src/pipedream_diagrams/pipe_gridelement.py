@@ -4,7 +4,7 @@ import sys
 import turtle as t
 
 from PIL import Image
-from teleport import teleport
+from pipedream_diagrams.teleport import teleport
 
 class GridElement(object):
     height = 30        # distance between rows - translate along y axis

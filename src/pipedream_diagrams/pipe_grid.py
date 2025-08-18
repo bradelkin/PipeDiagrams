@@ -5,8 +5,8 @@ import sys
 import turtle as t
 
 from PIL import Image
-from pipe_gridelement import GridElement
-from teleport import teleport
+from pipedream_diagrams.pipe_gridelement import GridElement
+from pipedream_diagrams.teleport import teleport
 
 
 class Grid(object):
@@ -17,15 +17,17 @@ class Grid(object):
     col_width = GridElement.width
     def __init__(self, rows, cols, fine_grid=False, has_zero_width=False):
         super(Grid,self).__init__()
-        print('Init Grid')
         if not hasattr(t,'teleport'):
             print("Grid doesn't have t.teleport")
             t.teleport = teleport
         else:
             print('Grid has t.teleport')
-        self.s = t.Screen()
+#       self.turtle = t.Turtle() # principle turtle
+        self.s = t.Screen() # principle screen
         self.s.setup(height=(rows+2)*Grid.row_height,width=(cols+2)*Grid.col_width)
         t.setworldcoordinates(-Grid.row_height,-Grid.col_width,(cols+1)*Grid.col_width,(rows+1)*Grid.row_height)
+        self.pipedream_dir = os.path.dirname(os.path.realpath(__file__))
+        self.label_dir = os.path.join(self.pipedream_dir, 'labels')
         t.speed(0)
         t.ht()
         if fine_grid:
@@ -60,10 +62,10 @@ class Grid(object):
         t.end_fill()
     def add_stamps(self, pipeline_label_list):
         for p in pipeline_label_list:
-            label = 'labels/' + p + '.gif'
+            label = os.path.join(self.label_dir, p + '.gif')
             t.addshape(label)
     def change_stamp(self, stamp_label):
-        label = 'labels/' + stamp_label + '.gif'
+        label = os.path.join(self.label_dir, stamp_label + '.gif')
         t.shape(label)
     def place_stamp(self, stamp_label, row_index, col_index,
                     row_offset=GridElement.height/2, col_offset=GridElement.width/2,

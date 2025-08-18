@@ -1,11 +1,12 @@
 import sys
 import turtle as t
 
-from PIL import ImageGrab
-
-from pipe_grid import Grid
+from context import get_script_path
 
 if __name__ == "__main__":
+    get_script_path()
+    from pipedream_diagrams.pipe_grid import Grid
+
     g = Grid(8,8)
     t.speed(0)
 
@@ -27,8 +28,6 @@ if __name__ == "__main__":
     g.add_pipeline(pipeline4, pen_color="orange")
     g.add_pipeline(pipeline5, pen_color="yellow")
     g.add_pipeline(pipeline6, pen_color="powderblue")
-
-    #g.s is turtle screen
 
 #   t.done()
     t.exitonclick()
