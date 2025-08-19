@@ -15,7 +15,7 @@ class Grid(object):
     # Only column 0 can be a 0-width column
     row_height = GridElement.height
     col_width = GridElement.width
-    def __init__(self, rows, cols, fine_grid=False, has_zero_width=False):
+    def __init__(self, rows, cols, startx=0, starty=0, fine_grid=False, has_zero_width=False):
         super(Grid,self).__init__()
         if not hasattr(t,'teleport'):
             print("Grid doesn't have t.teleport")
@@ -24,7 +24,12 @@ class Grid(object):
             print('Grid has t.teleport')
 #       self.turtle = t.Turtle() # principle turtle
         self.s = t.Screen() # principle screen
-        self.s.setup(height=(rows+2)*Grid.row_height,width=(cols+2)*Grid.col_width)
+        self.s.setup(height=(
+            rows+2)*Grid.row_height,
+            width=(cols+2)*Grid.col_width, 
+        startx=startx, 
+        starty=starty
+        )
         t.setworldcoordinates(-Grid.row_height,-Grid.col_width,(cols+1)*Grid.col_width,(rows+1)*Grid.row_height)
         self.pipedream_dir = os.path.dirname(os.path.realpath(__file__))
         self.label_dir = os.path.join(self.pipedream_dir, 'labels')
