@@ -6,14 +6,17 @@ import turtle as t
 from PIL import Image
 from pipedream_diagrams.teleport import teleport
 
+# use (share) anaonymous turtle by default.
+# Can add specialized functions to use a separate turtle instance
 class GridElement(object):
     height = 30        # distance between rows - translate along y axis
     width = 30      # distance between cols - translate along x axis
     # (x, y)
     def __init__(self, row_index, col_index):
         super(GridElement,self).__init__()
-        if not hasattr(t,'teleport'):
-            t.teleport = teleport
+        self.t = t.getturtle()
+        if not hasattr(self.t,'teleport'):
+            self.t.teleport = teleport
         self.lower_left = self.ll = self.sw_corner = self.grid2xy(row_index, col_index, 'll')
         self.lower_right = self.lr = self.se_corner = self.grid2xy(row_index, col_index, 'lr')
         self.upper_left = self.ul = self.nw_corner = self.grid2xy(row_index, col_index, 'ul')
@@ -60,12 +63,12 @@ class GridElement(object):
             sys.exit(1)
         return x,y
     def draw0width_element(self):
-        t.teleport(*self.lr)
-        t.setpos(self.ur)
+        self.t.teleport(*self.lr)
+        self.t.setpos(self.ur)
     def draw_element(self):
-        t.teleport(*self.ll)
-        t.setpos(self.lr)
-        t.setpos(self.ur)
-        t.setpos(self.ul)
-        t.setpos(self.ll)
+        self.t.teleport(*self.ll)
+        self.t.setpos(self.lr)
+        self.t.setpos(self.ur)
+        self.t.setpos(self.ul)
+        self.t.setpos(self.ll)
 

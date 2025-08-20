@@ -7,7 +7,6 @@ if __name__ == "__main__":
     get_script_path()
     from pipedream_diagrams.pipe_grid import Grid
 
-    t.tracer(0,0)
     row_length = 10
     col_length = 10
     g = Grid(col_length, row_length, fine_grid=True, has_zero_width=True)
@@ -52,8 +51,6 @@ if __name__ == "__main__":
     g.add_pipeline(pipeline4, pen_color="purple")
     g.add_pipeline(pipeline5, pen_color="green")
 
-    t.tracer(1,0)
-    t.st()
     stamp_list = ['a0', 'a1', 'a2', 'b2', 'b3','c2', 'c3']
     g.add_stamps(stamp_list)
 
@@ -65,6 +62,5 @@ if __name__ == "__main__":
     g.place_stamp('c3', 5, 3, for_row=False, print_stamp=True)
 
     g.dump_png()
-
 
     t.exitonclick()

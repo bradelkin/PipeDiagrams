@@ -8,7 +8,6 @@ if __name__ == "__main__":
     get_script_path()
     from pipedream_diagrams.pipe_grid import Grid
 
-    t.tracer(0,0)
     row_length = 10
     col_length = 10
     g = Grid(col_length, row_length, fine_grid=True, has_zero_width=True)
@@ -55,6 +54,4 @@ if __name__ == "__main__":
 
     g.dump_png()
 
-
-#   t.done()
     t.exitonclick()

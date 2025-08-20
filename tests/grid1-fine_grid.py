@@ -11,7 +11,7 @@ if __name__ == "__main__":
     g = Grid(8,8, fine_grid=True)
     #g.s is turtle screen
 
-    t.speed(0)
+    g.t.speed(0)
 
     row_length = 4
     col_length = 4
@@ -32,5 +32,6 @@ if __name__ == "__main__":
     g.add_pipeline(pipeline5, pen_color="yellow")
     g.add_pipeline(pipeline6, pen_color="powderblue")
 
-#   t.done()
+    g.dump_png()
+
     t.exitonclick()
